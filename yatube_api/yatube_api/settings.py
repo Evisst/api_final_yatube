@@ -1,5 +1,4 @@
 from pathlib import Path
-
 from datetime import timedelta
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +19,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'api',
     'posts',
-    'rest_framework_simplejwt',
     'djoser',
 ]
 
@@ -41,7 +39,7 @@ TEMPLATES_DIR = BASE_DIR / 'templates'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATES_DIR],
+        'DIRS': [[TEMPLATES_DIR]],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -105,5 +103,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
+    'AUTH_HEADER_TYPES': ('Bearer',),
 }
